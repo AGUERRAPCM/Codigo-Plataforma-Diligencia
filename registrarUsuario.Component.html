@@ -1,0 +1,107 @@
+<div class="container"> 
+    <ol class="breadcrumb">
+      
+          <mat-icon routerLink="/admin" class="enlace_main">home</mat-icon>
+          <mat-icon>navigate_next</mat-icon>
+          <mat-label routerLink="/usuario" class="enlace_main">Usuario</mat-label>
+          <mat-icon>navigate_next</mat-icon>
+          <mat-label>Registrar</mat-label>
+      
+    </ol>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="margin: 0 auto;">   
+          <form (ngSubmit)="intentaRegistrarUsuario()" #form="ngForm" aria-labelledby="title" novalidate>
+              
+            <div class="row form-group">
+                <div class="w-full my-5" style="text-align: center;margin-bottom: 30px;">
+                    <h1>Registro de Usuarios</h1> 
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <label class="control-label" for="tipo_documento">Tipo de Documento</label>                 
+                    <select class="form-control" name="tipo_documento" [(ngModel)]="usuario.tipo_documento">
+                      <option value="" disabled selected>Seleccionar</option>
+                      <option value="Documento Nacional de Identidad (DNI)">Documento Nacional de Identidad (DNI)</option>               
+                      <option value="Carnet de Extranjeria">Carnet de Extranjeria</option>
+                    </select>
+                                   
+                </div>             
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="control-label" for="documento">Numero de Documento</label>               
+                  <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" [(ngModel)]="usuario.numero_documento" #numero_documento="ngModel"  name="documento" placeholder="Ingrese contraseña" required>                                                                                   
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <label class="control-label">Nombres y Apellidos</label>
+                    <input type="text" onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" [(ngModel)]="usuario.nombres"  #nombres="ngModel" name="nombres" placeholder="Ingrese su nombre" autofocus required>                
+                    
+                </div>
+                <!--
+                <div class="col-md-4">
+                  <label class="control-label">Apellido Paterno</label>
+                  <input type="text" class="form-control" [(ngModel)]="usuario.paterno" #paterno="ngModel"  name="pri_apellido" placeholder="Ingrese apellido paterno"  required>                                                                  
+                </div>
+                <div class="col-md-4">
+                  <label class="control-label">Apellido Materno</label>
+                  <input type="text" class="form-control" [(ngModel)]="usuario.materno" #materno="ngModel"  name="seg_apellido" placeholder="Ingrese apellido materno" required>                                                                  
+                </div>
+                -->
+            </div>                 
+            <div class="row form-group">
+              <div class="col-md-12">
+                  <label class="control-label">Correo</label>
+                  <input type="email"   class="form-control" [(ngModel)]="usuario.correo" #correo="ngModel"  name="correo" placeholder="Ingrese su correo" required>                                                                  
+              </div>
+            </div>
+            <!--
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <label class="control-label">Oficina</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.oficina" #correo="ngModel"  name="correo" placeholder="Ingrese su oficina" required>                                                                  
+                </div>
+            </div>
+            -->  
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <label class="control-label" for="oficina">Oficina</label>                 
+                    <select class="form-control" name="oficina" [(ngModel)]="usuario.oficina">
+                      <option value="" disabled selected>Seleccionar</option>
+                      <option value="Oficina de Integridad">Oficina de Integridad</option>
+                      <option value="Oficina de Logistica">Oficina de Logistica</option>
+                      <option value="Oficina de Recursos Humanos">Oficina de Recursos Humanos</option>
+                    </select>               
+                </div>                        
+            </div>
+            
+            <div class="row form-group">
+              
+              <div class="col-md-12">
+                <label class="control-label">Cargo</label>
+                <input type="text" class="form-control" [(ngModel)]="usuario.cargo" #cargo="ngModel" name="cargo" placeholder="Ingrese su cargo" required>                                                                  
+              </div>        
+            </div>          
+            <div class="row form-group mt-5">
+                <div class="col-md-4">
+                    <button (click)="atras()" type="button" class="btn btn-primary" style="border-radius: 4px;">Cancelar</button>                  
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <button  class="btn btn-primary"  style="border-radius: 4px;">Guardar</button>
+                </div>
+            </div>
+
+          </form>
+    </div>
+  </div>
+</div>
+
+
+
