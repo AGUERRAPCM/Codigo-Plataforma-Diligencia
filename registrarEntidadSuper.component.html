@@ -1,0 +1,79 @@
+<div class="container"> 
+    <ol class="breadcrumb">
+        
+            <mat-icon routerLink="/super" class="enlace_main">home</mat-icon>
+            <mat-icon>navigate_next</mat-icon>
+            <a routerLink="/super-entidad" class="enlace_main">Entidad</a>
+            <mat-icon>navigate_next</mat-icon>
+            <span>Registrar</span>
+        
+    </ol>
+  </div>
+  
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6" style="margin: 0 auto;">   
+            <form (ngSubmit)="intentaRegistrarEntidad()" #form="ngForm" aria-labelledby="title" novalidate>
+                
+              <div class="row form-group">
+                  <div class="w-full my-5" style="text-align: center;margin-bottom: 30px;">
+                      <h2>Registro de Entidades</h2> 
+                  </div>
+              </div>
+              
+              <div class="row form-group">
+                  <div class="col-md-12">
+                    <label class="control-label" for="ruc">Ruc de la Entidad </label>               
+                    <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" [(ngModel)]="entidad.ruc_entidad"   name="ruc" placeholder="Ingrese el Ruc de la entidad" required>                                                                                   
+                  </div>
+              </div>
+              <div class="row form-group">
+                  <div class="col-md-12">
+                      <label class="control-label">Nombres de la Entidad</label>
+                      <input type="text" onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" [(ngModel)]="entidad.razon_social"   name="razon_social" placeholder="Ingrese el nombre de la entidad" autofocus required>                                   
+                  </div>              
+              </div>                 
+              <div class="row form-group">
+                <div class="col-md-12">
+                    <label class="control-label">Gobierno</label>
+                    <input type="text"   class="form-control" [(ngModel)]="entidad.gobierno" name="gobierno" placeholder="Ingrese gobierno" required>                                                                  
+                </div>
+              </div>                           
+              
+              <div class="row form-group">              
+                <div class="col-md-12">
+                  <label class="control-label">Sector</label>
+                  <input type="text" class="form-control" [(ngModel)]="entidad.sector"  name="sector" placeholder="Ingrese sector" required>                                                                  
+                </div>        
+              </div>
+              <div class="row form-group">              
+                <div class="col-md-12">
+                  <label class="control-label">Pliego</label>
+                  <input type="text" class="form-control" [(ngModel)]="entidad.pliego"  name="pliego" placeholder="Ingrese pliego" required>                                                                  
+                </div>        
+              </div>
+              <div class="row form-group">              
+                <div class="col-md-12">
+                  <label class="control-label">Ejecutora</label>
+                  <input type="text" class="form-control" [(ngModel)]="entidad.ejecutora"  name="ejecutora" placeholder="Ingrese ejecutora" required>                                                                  
+                </div>        
+              </div>
+                     
+              <div class="row form-group mt-5">
+                  <div class="col-md-4">
+                      <button (click)="atras()" type="button" class="btn btn-primary" style="border-radius: 4px;">Cancelar</button>                  
+                  </div>
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <button  class="btn btn-primary"  style="border-radius: 4px;">Guardar</button>
+                  </div>
+              </div>
+  
+            </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
