@@ -1,0 +1,75 @@
+<div class="container"> 
+    <ol class="breadcrumb">
+          <mat-icon routerLink="/admin" class="enlace_main">home</mat-icon>
+          <mat-icon>navigate_next</mat-icon>
+          <mat-label>Usuarios</mat-label>
+    </ol>
+</div>
+<div class="container">
+    <div class="row form-group mt-5">
+        <div class="col-md-12 mt-5 text-center">
+            <h2>Listado de Usuarios</h2>                        
+        </div>
+    </div>  
+    <div class="row form-group mt-5">
+        <div class="col-md-10" style="text-align: right;">
+            <mat-form-field appearance="standard">
+                <mat-label>Buscar</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Busqueda por nombre, entidad, cargo" #input>
+            </mat-form-field>                     
+        </div>
+        <div class="col-md-2" style="text-align: right;">
+          <button (click)="nuevoUsuario()" type="button" class="btn btn-primary" style="border-radius: 4px;" matTooltip="Registrar Usuario">Nuevo Usuario</button>                         
+        </div>
+    </div>  
+    <div id="tablaUsuarios" class="row form-group ">
+        <div class="col-md-12  text-center" style="padding-bottom: 50px;">
+            <div class="mat-elevation-z8" style="min-height: 500px;">
+            <table  mat-table [dataSource]="dataSource" matSort>    
+            
+                <ng-container matColumnDef="Oficina">
+                  <th id="thOficina" class="thCabecera" mat-header-cell *matHeaderCellDef> OFICINA </th>
+                  <td mat-cell *matCellDef="let element"> {{element.oficina}} </td>
+                </ng-container>
+                   
+                <ng-container matColumnDef="Cargo">
+                  <th id="thCargo" class="thCabecera" mat-header-cell *matHeaderCellDef> CARGO </th>
+                  <td mat-cell *matCellDef="let usuario"> {{usuario.cargo}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="NumeroDocumento">
+                  <th id="thNroDocumento" class="thCabecera" mat-header-cell *matHeaderCellDef> NRO DOCUMENTO</th>
+                  <td mat-cell *matCellDef="let usuario"> {{usuario.nrodocumento}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="Nombres">
+                  <th id="thNombres" class="thCabecera" mat-header-cell *matHeaderCellDef> NOMBRES </th>
+                  <td mat-cell *matCellDef="let usuario"> {{usuario.paterno}} </td>
+                </ng-container>
+        
+                <ng-container matColumnDef="Acciones">
+                    <th id="thBotones" class="thCabecera" mat-header-cell *matHeaderCellDef> Botones </th>
+                    <td mat-cell *matCellDef="let usuario" style="text-align: right;">              
+                        <a id="boton_editar" class="pointer" matTooltip="Editar Usuario" (click)="editarUsuario(usuario.idUsuario)">
+                            <mat-icon>edit</mat-icon>
+                        </a>
+                        <a id="boton_eliminar" class="pointer" matTooltip="Eliminar Usuario">
+                            <mat-icon>delete</mat-icon>
+                        </a>
+                    </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table> 
+              <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator> 
+            </div>            
+        </div>
+    </div>  
+    
+      
+    
+      
+      
+</div>
+
